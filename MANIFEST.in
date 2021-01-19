@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include customer_rewards *.css
+recursive-include customer_rewards *.csv
+recursive-include customer_rewards *.html
+recursive-include customer_rewards *.ico
+recursive-include customer_rewards *.js
+recursive-include customer_rewards *.json
+recursive-include customer_rewards *.md
+recursive-include customer_rewards *.png
+recursive-include customer_rewards *.py
+recursive-include customer_rewards *.svg
+recursive-include customer_rewards *.txt
+recursive-exclude customer_rewards *.pyc

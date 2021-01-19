@@ -1,0 +1,100 @@
+{
+ "autoname": "CUST - .####",
+ "creation": "2021-01-13 11:33:47.650672",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "phone_number",
+  "vehicle_name",
+  "column_break_3",
+  "referral_id",
+  "enter_referral_code",
+  "referred_by",
+  "section_break_6",
+  "referred_to",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "referral_id",
+   "fieldtype": "Read Only",
+   "label": "Referral ID"
+  },
+  {
+   "fieldname": "referred_by",
+   "fieldtype": "Read Only",
+   "label": "Referred by"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "enter_referral_code",
+   "fieldtype": "Data",
+   "label": "Enter Referral Code"
+  },
+  {
+   "fieldname": "referred_to",
+   "fieldtype": "Table",
+   "label": "Referred To",
+   "options": "Referred To"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Customer",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "vehicle_name",
+   "fieldtype": "Data",
+   "label": "Vehicle Name"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2021-01-19 14:00:21.695407",
+ "modified_by": "Administrator",
+ "module": "Customer Rewards",
+ "name": "Customer",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
