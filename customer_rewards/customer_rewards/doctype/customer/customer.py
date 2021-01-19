@@ -10,33 +10,25 @@ import random
 class Customer(Document):
 	def codeGenerator(self):
 		
-		code_doc=frappe.db.get_all('Customer',['customer'])
-		for a in code_doc:
-			if a['customer']==self.customer:
-				code_name=self.customer[0:3]
+		code_name=self.phone_number[-4:]
 				
 		upper = "QWERTYUIOPASDFGHJKLZXCVBNM"
 		numbers = "1234567890"
-		total = upper+numbers
+		lower = "qwertyuiopasdfghjklzxcvbnm"
+		total = upper+numbers+lower
 		length = 8
 		self.referral = "".join(random.sample(total,length))
 		self.referral_code=self.referral+code_name
 		return self.referral_code
-
 		
-
-	def after_insert(self):
-		
-		self.referral_id = self.codeGenerator()		
-	def validate(self):
-		customer_doc = frappe.db.get_all('Customer',fields=['customer','referral_id','referred_by'])
+	def before_submit(self):
+		self.referral_id = self.codeGenerator()
+		customer_doc = frappe.db.get_all('Customer',fields=['customer','referral_id','phone_number','referred_by'])
 	
 		for i in customer_doc:
 			if i['referral_id'] == self.enter_referral_code:
-				self.referred_by = i['customer']
+				self.referred_by = i['phone_number']
 
-				
-	
 				#referred_by_obj = frappe.db.get_value('Customer',{ "customer": i['customer']})		
 				#referred_by_obj =frappe.get_value('Customer', i['customer'])
 				#frappe.throw(i['customer'])
