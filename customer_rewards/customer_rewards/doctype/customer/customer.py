@@ -23,6 +23,8 @@ class Customer(Document):
 		self.referral_code=self.referral+code_name
 		return self.referral_code
 
+		
+
 	def after_insert(self):
 		
 		self.referral_id = self.codeGenerator()		
@@ -32,6 +34,8 @@ class Customer(Document):
 		for i in customer_doc:
 			if i['referral_id'] == self.enter_referral_code:
 				self.referred_by = i['customer']
+
+				
 	
 				#referred_by_obj = frappe.db.get_value('Customer',{ "customer": i['customer']})		
 				#referred_by_obj =frappe.get_value('Customer', i['customer'])
@@ -44,7 +48,7 @@ class Customer(Document):
 				# 	d.mobile_number = self.phone_number
 				#referred_by_customer_doc = frappe.db.set_value('Referred To',self.customer,'customer_name')	
 
-
+				#testing
 
 				
 
