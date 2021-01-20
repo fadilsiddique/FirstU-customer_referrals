@@ -5,13 +5,13 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "customer",
   "phone_number",
   "vehicle_name",
-  "column_break_3",
   "referral_id",
   "enter_referral_code",
+  "column_break_3",
   "referred_by",
+  "customer",
   "section_break_6",
   "referred_to",
   "amended_from"
@@ -21,7 +21,7 @@
    "fieldname": "customer",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Name"
+   "label": "ID"
   },
   {
    "fieldname": "phone_number",
@@ -31,7 +31,7 @@
   },
   {
    "fieldname": "column_break_3",
-   "fieldtype": "Column Break"
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "referral_id",
@@ -53,6 +53,7 @@
    "label": "Enter Referral Code"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "referred_to",
    "fieldtype": "Table",
    "label": "Referred To",
@@ -74,7 +75,7 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2021-01-19 15:49:17.760320",
+ "modified": "2021-01-20 17:54:59.947780",
  "modified_by": "Administrator",
  "module": "Customer Rewards",
  "name": "Customer",

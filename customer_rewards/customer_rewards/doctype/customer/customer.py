@@ -23,24 +23,50 @@ class Customer(Document):
 		
 	def before_submit(self):
 		self.referral_id = self.codeGenerator()
-		customer_doc = frappe.db.get_all('Customer',fields=['customer','referral_id','phone_number','referred_by'])
+		customer_doc = frappe.db.get_all('Customer',fields=['customer','referral_id','phone_number','referred_by', 'name'])
 	
 		for i in customer_doc:
 			if i['referral_id'] == self.enter_referral_code:
 				self.referred_by = i['phone_number']
+				self.customer =i['name']
 
-				#referred_by_obj = frappe.db.get_value('Customer',{ "customer": i['customer']})		
-				#referred_by_obj =frappe.get_value('Customer', i['customer'])
-				#frappe.throw(i['customer'])
+		doc=frappe.get_doc('Customer',self.customer)
+
+		doc.append('referred_to', {
+			'parent_field':'referred_to',
+    		'mobile_number': self.phone_number
+			
+    		
+		})
+		doc.save()
+
+		# child_tab =frappe.new_doc('Referred To')
+		# child.update({
+		# 	'mobile_number':self
+		# })
+		# doc.items.append(child_tab)
+
+
+		# doc = frappe.get_doc({
+    	# 'doctype': 'Referred To',
+    	# 'parent': 'CUST - 0122',
+		# #'mobile_number': self.referred_by
+		# })
+		# doc.insert()
+
+		#doc = frappe.get_doc('Referred_to',self.referred_by)
+				# referred_by_obj = frappe.db.get_value('Customer',{ "customer": i['customer']})		
+				# referred_by_obj =frappe.get_value('Customer', i['customer'])
+				# frappe.throw(i['customer'])
 				# referred_doc=frappe.get_doc('Customer',self.referred_by)
 				# frappe.throw(self.referred_by)
 				# refto = referred_doc.referred_to
 				# for d in refto:
 				# 	d.customer_name = self.customer
 				# 	d.mobile_number = self.phone_number
-				#referred_by_customer_doc = frappe.db.set_value('Referred To',self.customer,'customer_name')	
+				# referred_by_customer_doc = frappe.db.set_value('Referred To',self.customer,'customer_name')	
 
-				#testing
+				
 
 				
 
