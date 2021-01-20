@@ -29,6 +29,7 @@ class Customer(Document):
 			if i['referral_id'] == self.enter_referral_code:
 				self.referred_by = i['phone_number']
 				self.customer =i['name']
+				
 
 		doc=frappe.get_doc('Customer',self.customer)
 
